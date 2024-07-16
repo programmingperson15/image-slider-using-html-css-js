@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css link -->
+     <link rel="stylesheet" href="style.css">
+     <!-- boxicon -->
+     <link rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <title>Image Slider</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <img id="image" src="https://demos.pixelgrade.com/mies/wp-content/uploads/sites/15/2014/12/ilikearch-wallpaper-torso-2048x1273.jpg" alt="">
+              <div class="text">
+                <h1 id="title">MIES STUDIO</h1>
+                <button>View Project</button>
+              </div>
+              <div class="controll">
+                <button onclick="next()"><i class='bx bx-chevron-left'></i></button>
+                <button onclick="prev()"><i class='bx bx-chevron-right' ></i></button>
+              </div>
+        </div>
+    </div>
+    <script>
+        var img=document.getElementById("image");
+        var title=document.getElementById("title");
+
+        const data=[
+            {
+                image:"https://demos.pixelgrade.com/mies/wp-content/uploads/sites/15/2014/12/ilikearch-wallpaper-torso-2048x1273.jpg",
+                title:"MIES STUDIO"
+            },
+            {
+                image:"https://demos.pixelgrade.com/mies/wp-content/uploads/sites/15/2014/12/birdnest-feature.jpg",
+                title:"BIRDNEST STADIUM"
+            },
+            {
+                image:"https://demos.pixelgrade.com/mies/wp-content/uploads/sites/15/2014/12/lake-view-featured.jpg",
+                title:"LAKE VIEW RESIDENCE"
+            },
+        ];
+        var num=0;
+        function next(){
+            num++;
+            if(num>=data.length){
+              num=0;
+              img.src=data[num].image;
+              title.innerHTML=data[num].title
+            }else{
+                img.src=data[num].image;
+              title.innerHTML=data[num].title
+
+            }
+        }
+        function prev(){
+            num--;
+            if(num<0){
+               num=data.length;
+               img.src=data[num].image;
+               title.innerHTML=data[num].title;
+            }else{
+                img.src=data[num].image;
+               title.innerHTML=data[num].title;
+            }
+        }
+       
+    </script>
+</body>
+</html>
